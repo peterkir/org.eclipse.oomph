@@ -119,9 +119,9 @@ public class SetupContext
 
   public static final URI INDEX_SETUP_URI = URI.createURI("index:/org.eclipse.setup");
 
-  public static final URI INDEX_SETUP_LOCATION_URI = URI.createURI("http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/org.eclipse.setup");
+  public static final URI INDEX_SETUP_LOCATION_URI = URI.createURI("http://peterkir.github.io/idefix/oomph/org.eclipse.setup");
 
-  public static final URI INDEX_SETUP_ARCHIVE_LOCATION_URI = URI.createURI("http://www.eclipse.org/setups/setups.zip");
+  public static final URI INDEX_SETUP_ARCHIVE_LOCATION_URI = URI.createURI("http://peterkir.github.io/idefix/oomph/setups.zip");
 
   public static final URI INSTALLATION_SETUP_FILE_NAME_URI = URI.createURI("installation.setup");
 
