@@ -250,7 +250,7 @@
         <details key="name" value="install.root"/>
         <details key="type" value="FOLDER"/>
         <details key="label" value="Root install folder"/>
-        <details key="defaultValue" value="${user.home}"/>
+        <details key="defaultValue" value="${oomph.home}"/>
         <details key="description" value="The root install folder where all the products are installed"/>
         <details key="storageURI" value="scope://"/>
       </eAnnotations>
@@ -303,7 +303,7 @@
         <details key="name" value="workspace.container.root"/>
         <details key="type" value="FOLDER"/>
         <details key="label" value="Root workspace-container folder"/>
-        <details key="defaultValue" value="${user.home}"/>
+        <details key="defaultValue" value="${oomph.home}"/>
         <details key="description" value="The root workspace-container folder where all the workspaces are located"/>
         <details key="storageURI" value="scope://"/>
       </eAnnotations>

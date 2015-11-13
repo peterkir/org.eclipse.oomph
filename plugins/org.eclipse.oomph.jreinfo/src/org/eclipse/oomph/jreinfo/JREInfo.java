@@ -85,10 +85,11 @@ public final class JREInfo
 
       if (!SKIP_USER_HOME)
       {
-        String userHome = PropertiesUtil.getUserHome();
+        String userHome = PropertiesUtil.getOomphHome();
         jreInfo = searchFolder(jreInfo, userHome);
         jreInfo = searchFolder(jreInfo, userHome + "/java");
         jreInfo = searchFolder(jreInfo, userHome + "/jvm");
+        jreInfo = searchFolder(jreInfo, userHome + "/jdk");
       }
 
       for (int i = 0; i < EXTRA_SEARCH_PATH.length; i++)

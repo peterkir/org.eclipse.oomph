@@ -64,7 +64,7 @@ public class TestServer
 
     Credentials credentials;
 
-    File file = new File(PropertiesUtil.getUserHome(), "oomph.test.credentials");
+    File file = new File(PropertiesUtil.getOomphHome(), "oomph.test.credentials");
     if (file.exists())
     {
       System.out.println("Reading credentials from file " + file);

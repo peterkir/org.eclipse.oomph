@@ -239,7 +239,7 @@ public class SimpleKeepInstallerPage extends SimpleInstallerPage
     {
       public void run()
       {
-        File home = new File(PropertiesUtil.getUserHome());
+        File home = new File(PropertiesUtil.getOomphHome());
         for (int i = 1; i < Integer.MAX_VALUE; i++)
         {
           File folder = new File(home, "eclipse-installer" + (i > 1 ? i : ""));

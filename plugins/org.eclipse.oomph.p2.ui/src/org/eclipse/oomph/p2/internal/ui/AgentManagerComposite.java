@@ -176,7 +176,7 @@ public class AgentManagerComposite extends Composite
       @Override
       public void widgetSelected(SelectionEvent e)
       {
-        String path = openDirectoryDialog("Select the location of the new agent.", PropertiesUtil.getUserHome());
+        String path = openDirectoryDialog("Select the location of the new agent.", PropertiesUtil.getOomphHome());
         if (path != null)
         {
           Agent agent = P2Util.getAgentManager().addAgent(new File(path));

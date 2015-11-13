@@ -102,6 +102,11 @@ public final class PropertiesUtil
     }
   }
 
+  public static String getOomphHome()
+  {
+    return getProperty("oomph.home", getUserHome());
+  }
+
   public static String getUserHome()
   {
     return getProperty("user.home", ".");

@@ -2430,12 +2430,12 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
   {
     String source = "http://www.eclipse.org/oomph/setup/RuleVariable";
     addAnnotation(getInstallationTask_Location(), source, new String[] { "name", "install.root", "type", "FOLDER", "label", "Root install folder",
-        "defaultValue", "${user.home}", "description", "The root install folder where all the products are installed", "storageURI", "scope://" });
+        "defaultValue", "${oomph.home}", "description", "The root install folder where all the products are installed", "storageURI", "scope://" });
     addAnnotation(getInstallationTask_Location(), source,
         new String[] { "name", "installation.id", "type", "STRING", "label", "Installation folder name", "defaultValue", "${scope.product.name|installationID}",
             "description", "The name of the folder within the root install folder where the product is installed" });
     addAnnotation(getWorkspaceTask_Location(), source,
-        new String[] { "name", "workspace.container.root", "type", "FOLDER", "label", "Root workspace-container folder", "defaultValue", "${user.home}",
+        new String[] { "name", "workspace.container.root", "type", "FOLDER", "label", "Root workspace-container folder", "defaultValue", "${oomph.home}",
             "description", "The root workspace-container folder where all the workspaces are located", "storageURI", "scope://" });
     addAnnotation(getWorkspaceTask_Location(), source,
         new String[] { "name", "workspace.id", "type", "STRING", "label", "Workspace folder name", "defaultValue", "${scope.project.name|workspaceID}",

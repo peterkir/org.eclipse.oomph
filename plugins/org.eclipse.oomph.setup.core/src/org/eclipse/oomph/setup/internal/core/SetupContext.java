@@ -102,7 +102,7 @@ public class SetupContext
 
   // State locations
 
-  public static final URI GLOBAL_STATE_LOCATION_URI = URI.createFileURI(PropertiesUtil.getUserHome()).appendSegments(new String[] { ".eclipse", OOMPH_NODE });
+  public static final URI GLOBAL_STATE_LOCATION_URI = URI.createFileURI(PropertiesUtil.getOomphHome()).appendSegments(new String[] { ".eclipse", OOMPH_NODE });
 
   public static final URI GLOBAL_SETUPS_URI = URI.createURI(USER_SCHEME + ":/");
 

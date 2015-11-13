@@ -75,7 +75,7 @@ public class CachingTransport extends Transport
     setDelegate(delegate);
     this.agent = agent;
 
-    File folder = P2CorePlugin.getUserStateFolder(new File(PropertiesUtil.getUserHome()));
+    File folder = P2CorePlugin.getUserStateFolder(new File(PropertiesUtil.getOomphHome()));
     cacheFolder = new File(folder, "cache");
     cacheFolder.mkdirs();
   }
