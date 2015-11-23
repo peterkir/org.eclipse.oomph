@@ -157,7 +157,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getTextModifyTask()
    * @generated
    */
-  int TEXT_MODIFY_TASK = 29;
+  int TEXT_MODIFY_TASK = 30;
 
   /**
    * The meta object id for the '{@link org.eclipse.oomph.setup.impl.TextModificationImpl <em>Text Modification</em>}' class.
@@ -167,7 +167,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getTextModification()
    * @generated
    */
-  int TEXT_MODIFICATION = 30;
+  int TEXT_MODIFICATION = 31;
 
   /**
    * The meta object id for the '{@link org.eclipse.oomph.setup.impl.ResourceCreationTaskImpl <em>Resource Creation Task</em>}' class.
@@ -2856,6 +2856,124 @@ public interface SetupPackage extends EPackage
   int RESOURCE_CREATION_TASK_FEATURE_COUNT = SETUP_TASK_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.eclipse.oomph.setup.impl.ResourceExtractTaskImpl <em>Resource Extract Task</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.oomph.setup.impl.ResourceExtractTaskImpl
+   * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getResourceExtractTask()
+   * @generated
+   */
+  int RESOURCE_EXTRACT_TASK = 29;
+
+  /**
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__ANNOTATIONS = SETUP_TASK__ANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__ID = SETUP_TASK__ID;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__DESCRIPTION = SETUP_TASK__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Scope Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__SCOPE_TYPE = SETUP_TASK__SCOPE_TYPE;
+
+  /**
+   * The feature id for the '<em><b>Excluded Triggers</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__EXCLUDED_TRIGGERS = SETUP_TASK__EXCLUDED_TRIGGERS;
+
+  /**
+   * The feature id for the '<em><b>Disabled</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__DISABLED = SETUP_TASK__DISABLED;
+
+  /**
+   * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__PREDECESSORS = SETUP_TASK__PREDECESSORS;
+
+  /**
+   * The feature id for the '<em><b>Successors</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__SUCCESSORS = SETUP_TASK__SUCCESSORS;
+
+  /**
+   * The feature id for the '<em><b>Restrictions</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__RESTRICTIONS = SETUP_TASK__RESTRICTIONS;
+
+  /**
+   * The feature id for the '<em><b>Source URL</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__SOURCE_URL = SETUP_TASK_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Target URL</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK__TARGET_URL = SETUP_TASK_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Resource Extract Task</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_EXTRACT_TASK_FEATURE_COUNT = SETUP_TASK_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3016,7 +3134,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getProductToProductVersionMapEntry()
    * @generated
    */
-  int PRODUCT_TO_PRODUCT_VERSION_MAP_ENTRY = 31;
+  int PRODUCT_TO_PRODUCT_VERSION_MAP_ENTRY = 32;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' reference.
@@ -3053,7 +3171,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getProjectToStreamMapEntry()
    * @generated
    */
-  int PROJECT_TO_STREAM_MAP_ENTRY = 32;
+  int PROJECT_TO_STREAM_MAP_ENTRY = 33;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' reference.
@@ -3099,7 +3217,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getInstallationToWorkspacesMapEntry()
    * @generated
    */
-  int INSTALLATION_TO_WORKSPACES_MAP_ENTRY = 33;
+  int INSTALLATION_TO_WORKSPACES_MAP_ENTRY = 34;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' reference.
@@ -3136,7 +3254,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getWorkspaceToInstallationsMapEntry()
    * @generated
    */
-  int WORKSPACE_TO_INSTALLATIONS_MAP_ENTRY = 34;
+  int WORKSPACE_TO_INSTALLATIONS_MAP_ENTRY = 35;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' reference.
@@ -3173,7 +3291,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getScopeType()
    * @generated
    */
-  int SCOPE_TYPE = 35;
+  int SCOPE_TYPE = 36;
 
   /**
    * The meta object id for the '{@link org.eclipse.oomph.setup.Trigger <em>Trigger</em>}' enum.
@@ -3183,7 +3301,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 36;
+  int TRIGGER = 37;
 
   /**
    * The meta object id for the '{@link org.eclipse.oomph.setup.VariableType <em>Variable Type</em>}' enum.
@@ -3193,7 +3311,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getVariableType()
    * @generated
    */
-  int VARIABLE_TYPE = 37;
+  int VARIABLE_TYPE = 38;
 
   /**
    * The meta object id for the '{@link org.eclipse.oomph.setup.UnsignedPolicy <em>Unsigned Policy</em>}' enum.
@@ -3203,7 +3321,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getUnsignedPolicy()
    * @generated
    */
-  int UNSIGNED_POLICY = 38;
+  int UNSIGNED_POLICY = 39;
 
   /**
    * The meta object id for the '<em>License Info</em>' data type.
@@ -3213,7 +3331,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getLicenseInfo()
    * @generated
    */
-  int LICENSE_INFO = 40;
+  int LICENSE_INFO = 41;
 
   /**
    * Returns the meta object for class '{@link org.eclipse.oomph.setup.Index <em>Index</em>}'.
@@ -3331,7 +3449,7 @@ public interface SetupPackage extends EPackage
    * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getTriggerSet()
    * @generated
    */
-  int TRIGGER_SET = 39;
+  int TRIGGER_SET = 40;
 
   /**
    * Returns the meta object for class '{@link org.eclipse.oomph.setup.Project <em>Project</em>}'.
@@ -4320,6 +4438,38 @@ public interface SetupPackage extends EPackage
    * @generated
    */
   EAttribute getResourceCreationTask_Encoding();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.oomph.setup.ResourceExtractTask <em>Resource Extract Task</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Resource Extract Task</em>'.
+   * @see org.eclipse.oomph.setup.ResourceExtractTask
+   * @generated
+   */
+  EClass getResourceExtractTask();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.oomph.setup.ResourceExtractTask#getSourceURL <em>Source URL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Source URL</em>'.
+   * @see org.eclipse.oomph.setup.ResourceExtractTask#getSourceURL()
+   * @see #getResourceExtractTask()
+   * @generated
+   */
+  EAttribute getResourceExtractTask_SourceURL();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.oomph.setup.ResourceExtractTask#getTargetURL <em>Target URL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Target URL</em>'.
+   * @see org.eclipse.oomph.setup.ResourceExtractTask#getTargetURL()
+   * @see #getResourceExtractTask()
+   * @generated
+   */
+  EAttribute getResourceExtractTask_TargetURL();
 
   /**
    * Returns the meta object for class '{@link org.eclipse.oomph.setup.EclipseIniTask <em>Eclipse Ini Task</em>}'.
@@ -5530,6 +5680,32 @@ public interface SetupPackage extends EPackage
      * @generated
      */
     EAttribute RESOURCE_CREATION_TASK__ENCODING = eINSTANCE.getResourceCreationTask_Encoding();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.oomph.setup.impl.ResourceExtractTaskImpl <em>Resource Extract Task</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.oomph.setup.impl.ResourceExtractTaskImpl
+     * @see org.eclipse.oomph.setup.impl.SetupPackageImpl#getResourceExtractTask()
+     * @generated
+     */
+    EClass RESOURCE_EXTRACT_TASK = eINSTANCE.getResourceExtractTask();
+
+    /**
+     * The meta object literal for the '<em><b>Source URL</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE_EXTRACT_TASK__SOURCE_URL = eINSTANCE.getResourceExtractTask_SourceURL();
+
+    /**
+     * The meta object literal for the '<em><b>Target URL</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE_EXTRACT_TASK__TARGET_URL = eINSTANCE.getResourceExtractTask_TargetURL();
 
     /**
      * The meta object literal for the '{@link org.eclipse.oomph.setup.impl.EclipseIniTaskImpl <em>Eclipse Ini Task</em>}' class.

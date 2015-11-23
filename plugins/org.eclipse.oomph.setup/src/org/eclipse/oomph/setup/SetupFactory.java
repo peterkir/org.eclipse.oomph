@@ -240,6 +240,15 @@ public interface SetupFactory extends EFactory
   ResourceCreationTask createResourceCreationTask();
 
   /**
+   * Returns a new object of class '<em>Resource Extract Task</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource Extract Task</em>'.
+   * @generated
+   */
+  ResourceExtractTask createResourceExtractTask();
+
+  /**
    * Returns a new object of class '<em>Eclipse Ini Task</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

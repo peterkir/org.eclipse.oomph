@@ -30,6 +30,7 @@ import org.eclipse.oomph.setup.ProjectContainer;
 import org.eclipse.oomph.setup.RedirectionTask;
 import org.eclipse.oomph.setup.ResourceCopyTask;
 import org.eclipse.oomph.setup.ResourceCreationTask;
+import org.eclipse.oomph.setup.ResourceExtractTask;
 import org.eclipse.oomph.setup.Scope;
 import org.eclipse.oomph.setup.SetupPackage;
 import org.eclipse.oomph.setup.SetupTask;
@@ -649,6 +650,24 @@ public class SetupSwitch<T> extends Switch<T>
         if (result == null)
         {
           result = caseModelElement(resourceCreationTask);
+        }
+        if (result == null)
+        {
+          result = defaultCase(theEObject);
+        }
+        return result;
+      }
+      case SetupPackage.RESOURCE_EXTRACT_TASK:
+      {
+        ResourceExtractTask resourceExtractTask = (ResourceExtractTask)theEObject;
+        T result = caseResourceExtractTask(resourceExtractTask);
+        if (result == null)
+        {
+          result = caseSetupTask(resourceExtractTask);
+        }
+        if (result == null)
+        {
+          result = caseModelElement(resourceExtractTask);
         }
         if (result == null)
         {
@@ -1277,6 +1296,22 @@ public class SetupSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseResourceCreationTask(ResourceCreationTask object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Resource Extract Task</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Resource Extract Task</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResourceExtractTask(ResourceExtractTask object)
   {
     return null;
   }

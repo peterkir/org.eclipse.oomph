@@ -29,6 +29,7 @@ import org.eclipse.oomph.setup.ProjectCatalog;
 import org.eclipse.oomph.setup.RedirectionTask;
 import org.eclipse.oomph.setup.ResourceCopyTask;
 import org.eclipse.oomph.setup.ResourceCreationTask;
+import org.eclipse.oomph.setup.ResourceExtractTask;
 import org.eclipse.oomph.setup.ScopeType;
 import org.eclipse.oomph.setup.SetupFactory;
 import org.eclipse.oomph.setup.SetupPackage;
@@ -158,6 +159,8 @@ public class SetupFactoryImpl extends EFactoryImpl implements SetupFactory
         return createResourceCopyTask();
       case SetupPackage.RESOURCE_CREATION_TASK:
         return createResourceCreationTask();
+      case SetupPackage.RESOURCE_EXTRACT_TASK:
+        return createResourceExtractTask();
       case SetupPackage.TEXT_MODIFY_TASK:
         return createTextModifyTask();
       case SetupPackage.TEXT_MODIFICATION:
@@ -560,6 +563,17 @@ public class SetupFactoryImpl extends EFactoryImpl implements SetupFactory
   {
     ResourceCreationTaskImpl resourceCreationTask = new ResourceCreationTaskImpl();
     return resourceCreationTask;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceExtractTask createResourceExtractTask()
+  {
+    ResourceExtractTaskImpl resourceExtractTask = new ResourceExtractTaskImpl();
+    return resourceExtractTask;
   }
 
   /**

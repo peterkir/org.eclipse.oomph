@@ -31,6 +31,7 @@ import org.eclipse.oomph.setup.ProjectContainer;
 import org.eclipse.oomph.setup.RedirectionTask;
 import org.eclipse.oomph.setup.ResourceCopyTask;
 import org.eclipse.oomph.setup.ResourceCreationTask;
+import org.eclipse.oomph.setup.ResourceExtractTask;
 import org.eclipse.oomph.setup.Scope;
 import org.eclipse.oomph.setup.ScopeType;
 import org.eclipse.oomph.setup.SetupFactory;
@@ -272,6 +273,13 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
    * @generated
    */
   private EClass resourceCreationTaskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resourceExtractTaskEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1441,6 +1449,36 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getResourceExtractTask()
+  {
+    return resourceExtractTaskEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResourceExtractTask_SourceURL()
+  {
+    return (EAttribute)resourceExtractTaskEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResourceExtractTask_TargetURL()
+  {
+    return (EAttribute)resourceExtractTaskEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEclipseIniTask()
   {
     return eclipseIniTaskEClass;
@@ -1903,6 +1941,10 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
     createEAttribute(resourceCreationTaskEClass, RESOURCE_CREATION_TASK__TARGET_URL);
     createEAttribute(resourceCreationTaskEClass, RESOURCE_CREATION_TASK__ENCODING);
 
+    resourceExtractTaskEClass = createEClass(RESOURCE_EXTRACT_TASK);
+    createEAttribute(resourceExtractTaskEClass, RESOURCE_EXTRACT_TASK__SOURCE_URL);
+    createEAttribute(resourceExtractTaskEClass, RESOURCE_EXTRACT_TASK__TARGET_URL);
+
     textModifyTaskEClass = createEClass(TEXT_MODIFY_TASK);
     createEAttribute(textModifyTaskEClass, TEXT_MODIFY_TASK__URL);
     createEReference(textModifyTaskEClass, TEXT_MODIFY_TASK__MODIFICATIONS);
@@ -2004,6 +2046,7 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
     preferenceTaskEClass.getESuperTypes().add(getSetupTask());
     resourceCopyTaskEClass.getESuperTypes().add(getSetupTask());
     resourceCreationTaskEClass.getESuperTypes().add(getSetupTask());
+    resourceExtractTaskEClass.getESuperTypes().add(getSetupTask());
     textModifyTaskEClass.getESuperTypes().add(getSetupTask());
     textModificationEClass.getESuperTypes().add(theBasePackage.getModelElement());
 
@@ -2244,6 +2287,12 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
     initEAttribute(getResourceCreationTask_TargetURL(), ecorePackage.getEString(), "targetURL", null, 1, 1, ResourceCreationTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getResourceCreationTask_Encoding(), ecorePackage.getEString(), "encoding", null, 0, 1, ResourceCreationTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resourceExtractTaskEClass, ResourceExtractTask.class, "ResourceExtractTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getResourceExtractTask_SourceURL(), ecorePackage.getEString(), "sourceURL", null, 1, 1, ResourceExtractTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResourceExtractTask_TargetURL(), ecorePackage.getEString(), "targetURL", null, 1, 1, ResourceExtractTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textModifyTaskEClass, TextModifyTask.class, "TextModifyTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

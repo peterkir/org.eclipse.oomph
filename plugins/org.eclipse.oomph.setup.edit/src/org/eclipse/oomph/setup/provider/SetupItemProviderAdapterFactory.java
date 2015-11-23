@@ -777,6 +777,31 @@ public class SetupItemProviderAdapterFactory extends SetupAdapterFactory
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.eclipse.oomph.setup.ResourceExtractTask} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ResourceExtractTaskItemProvider resourceExtractTaskItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.eclipse.oomph.setup.ResourceExtractTask}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createResourceExtractTaskAdapter()
+  {
+    if (resourceExtractTaskItemProvider == null)
+    {
+      resourceExtractTaskItemProvider = new ResourceExtractTaskItemProvider(this);
+    }
+
+    return resourceExtractTaskItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.eclipse.oomph.setup.EclipseIniTask} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1117,6 +1142,10 @@ public class SetupItemProviderAdapterFactory extends SetupAdapterFactory
     {
       resourceCreationTaskItemProvider.dispose();
     }
+    if (resourceExtractTaskItemProvider != null)
+    {
+      resourceExtractTaskItemProvider.dispose();
+    }
     if (textModifyTaskItemProvider != null)
     {
       textModifyTaskItemProvider.dispose();
@@ -1244,6 +1273,8 @@ public class SetupItemProviderAdapterFactory extends SetupAdapterFactory
         newChildDescriptors.add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, SetupFactory.eINSTANCE.createResourceCopyTask()));
 
         newChildDescriptors.add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, SetupFactory.eINSTANCE.createResourceCreationTask()));
+
+        newChildDescriptors.add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, SetupFactory.eINSTANCE.createResourceExtractTask()));
 
         newChildDescriptors.add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, SetupFactory.eINSTANCE.createTextModifyTask()));
 

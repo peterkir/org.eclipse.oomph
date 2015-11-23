@@ -23,6 +23,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -54,6 +55,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 /**
  * @author Eike Stepper
@@ -61,6 +64,8 @@ import java.util.StringTokenizer;
 public final class IOUtil
 {
   private static final int MAX_FILE_NAME_LENGTH = 200;
+
+  private static final int BUFFERSIZE = 8192;
 
   private static final byte[] BUFFER = new byte[8192];
 
@@ -1077,4 +1082,42 @@ public final class IOUtil
       return null;
     }
   }
+
+  public static void extract(ZipInputStream zis, org.eclipse.emf.common.util.URI targetResourceURI)
+  {
+    ZipEntry entry;
+    String targetResourceName = targetResourceURI.device().concat(targetResourceURI.path());
+    try
+    {
+      while ((entry = zis.getNextEntry()) != null)
+      {
+        int count;
+        byte data[] = new byte[BUFFERSIZE];
+        // Write the files to the disk, but ensure that the filename is valid,
+        // and that the file is not insanely big
+        String name = targetResourceName.concat(entry.getName());
+
+        if (entry.isDirectory())
+        {
+          System.out.println("Creating directory " + name);
+          new File(name).mkdir();
+          continue;
+        }
+        FileOutputStream fos = new FileOutputStream(name);
+        BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFERSIZE);
+        while ((count = zis.read(data, 0, BUFFERSIZE)) != -1)
+        {
+          dest.write(data, 0, count);
+        }
+        dest.flush();
+        dest.close();
+        zis.closeEntry();
+      }
+    }
+    catch (IOException ex)
+    {
+      ex.printStackTrace();
+    }
+  }
+
 }

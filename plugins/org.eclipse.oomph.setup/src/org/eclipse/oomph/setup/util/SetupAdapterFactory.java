@@ -30,6 +30,7 @@ import org.eclipse.oomph.setup.ProjectContainer;
 import org.eclipse.oomph.setup.RedirectionTask;
 import org.eclipse.oomph.setup.ResourceCopyTask;
 import org.eclipse.oomph.setup.ResourceCreationTask;
+import org.eclipse.oomph.setup.ResourceExtractTask;
 import org.eclipse.oomph.setup.Scope;
 import org.eclipse.oomph.setup.SetupPackage;
 import org.eclipse.oomph.setup.SetupTask;
@@ -286,6 +287,12 @@ public class SetupAdapterFactory extends AdapterFactoryImpl
     public Adapter caseResourceCreationTask(ResourceCreationTask object)
     {
       return createResourceCreationTaskAdapter();
+    }
+
+    @Override
+    public Adapter caseResourceExtractTask(ResourceExtractTask object)
+    {
+      return createResourceExtractTaskAdapter();
     }
 
     @Override
@@ -782,6 +789,21 @@ public class SetupAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createResourceCreationTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.oomph.setup.ResourceExtractTask <em>Resource Extract Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.oomph.setup.ResourceExtractTask
+   * @generated
+   */
+  public Adapter createResourceExtractTaskAdapter()
   {
     return null;
   }
