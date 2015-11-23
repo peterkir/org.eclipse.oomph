@@ -13,6 +13,10 @@ install:
 - "echo \"export MAVEN_OPTS='-Dmaven.repo.local=$HOME/.m2/repository -Xmx2750m'\" > ~/.mavenrc"
 
 script:
+- DEFAULT_UPDATE_URL=http://peterkir.github.io/org.eclipse.oomph/$TRAVIS_BRANCH/repo/oomph
+- echo patch the DEFAULT_UPDATE_URL to $DEFAULT_UPDATE_URL
+- sed -i -e 's|http://download.eclipse.org/oomph/updates/milestone/latest|'$DEFAULT_UPDATE_URL'|g' plugins/org.eclipse.oomph.setup.core/src/org/eclipse/oomph/setup/internal/core/SetupCorePlugin.java
+
 #- wget https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/.m2.zip
 #- unzip -d $HOME .m2.zip
 - mvn install --show-version --batch-mode --quiet --errors -P modules -DskipTests
