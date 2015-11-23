@@ -63,11 +63,11 @@ public class AgentManagerImpl implements AgentManager
     this(new File(PropertiesUtil.getOomphHome()));
   }
 
-  public AgentManagerImpl(final File userHome)
+  public AgentManagerImpl(final File oomphHome)
   {
-    defaultAgentLocation = new File(userHome, ".p2");
+    defaultAgentLocation = new File(PropertiesUtil.getOomphHome(), ".p2");
 
-    File folder = P2CorePlugin.getUserStateFolder(userHome);
+    File folder = P2CorePlugin.getUserStateFolder(oomphHome);
     File infoFile = new File(folder, "agents.info");
     defaultsFile = new File(folder, "defaults.info");
 
@@ -95,9 +95,9 @@ public class AgentManagerImpl implements AgentManager
       protected void initializeFirstTime()
       {
         initializeFirstTime(defaultAgentLocation);
-        initializeFirstTime(new File(userHome, "p2"));
-        initializeFirstTime(new File(userHome, ".eclipse"));
-        initializeFirstTime(new File(userHome, "eclipse"));
+        initializeFirstTime(new File(oomphHome, "p2"));
+        initializeFirstTime(new File(oomphHome, ".eclipse"));
+        initializeFirstTime(new File(oomphHome, "eclipse"));
 
         if (getElements().isEmpty())
         {
