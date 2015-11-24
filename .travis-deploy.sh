@@ -25,7 +25,7 @@ then
 	  echo -e "updating index.html with build details"
 	  DATE=`date +%Y%m%d-%H%M%S`
 	  sed -i -e 's|<h1>customized oomph build - last updated on .*\?</h1>|<h1>customized oomph build - last updated on '$DATE'</h1>|g' index.html
-	  sed -i -e 's|<h2>Branch '$TRAVIS_BRANCH' - TravisCI build #.*\? - build on .*\?</h2>|<h2>Branch '$TRAVIS_BRANCH' - TravisCI build #'$TRAVIS_BUILD_ID' - build on '$DATE'</h2>|g' index.html
+	  sed -i -e 's|<h2>Branch '$TRAVIS_BRANCH' - TravisCI build #.*\? - build on .*\?</h2>|<h2>Branch '$TRAVIS_BRANCH' - TravisCI build <a href="https://travis-ci.org/peterkir/org.eclipse.oomph/builds/'$TRAVIS_BUILD_ID'">#'$TRAVIS_BUILD_NUMBER'</a> - build on '$DATE'</h2>|g' index.html
 	
       RESULTDIR=./$TRAVIS_BRANCH
       mkdir -p $RESULTDIR
