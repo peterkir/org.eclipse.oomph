@@ -44,6 +44,8 @@ import java.util.Set;
  */
 public class AgentManagerImpl implements AgentManager
 {
+  private static final String AGENT_PATH = "oomph.p2.agent.path";
+
   private static final String AGENT_SUFFIX = ":agent";
 
   public static AgentManager instance;
@@ -60,7 +62,7 @@ public class AgentManagerImpl implements AgentManager
 
   public AgentManagerImpl()
   {
-    this(new File(PropertiesUtil.getOomphHome()));
+    this(new File(System.getProperty(AGENT_PATH, PropertiesUtil.getOomphHome())));
   }
 
   public AgentManagerImpl(final File oomphHome)
