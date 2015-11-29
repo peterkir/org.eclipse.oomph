@@ -4,7 +4,6 @@ language: java
 jdk:
 - oraclejdk7
 
-
 branches:
   only:
   - master 
@@ -37,5 +36,5 @@ deploy:
   user: peterkir
   key:
     secure: UNRNbIII5utNld2a7w3t9ErmzSMAHF3mFibGdGJE6/374rwN4PBNJLt+xPxC70RYCgva+iAERtdCLKwC6EMwIfR9itfUPZ8TB7df+XHqXDtQOOB/dmr2h6WNROT7jePDnxGfeFkbIosM3LiYE80TfY6wDPn3KmgfgS5xDAyTMp0=
-  dry-run: true
+#  dry-run: true
 
