@@ -31,19 +31,19 @@ then
       mkdir -p $RESULTDIR
     
       # clean the repository directory, then copy the build result into it
-      git rm -rf $RESULTDIR/repo/*
-      git rm -rf $RESULTDIR/products/*
+#      git rm -rf $RESULTDIR/repo/*
+#      git rm -rf $RESULTDIR/products/*
       
-      ls -laR $HOME/.m2/repository > $RESULTDIR/mavenRepo.txt
+#      ls -laR $HOME/.m2/repository > $RESULTDIR/mavenRepo.txt
       
-      mkdir -p $RESULTDIR/repo/installer
-      cp -rf ../products/org.eclipse.oomph.setup.installer.product/target/repository/* $RESULTDIR/repo/installer
+#      mkdir -p $RESULTDIR/repo/installer
+#      cp -rf ../products/org.eclipse.oomph.setup.installer.product/target/repository/* $RESULTDIR/repo/installer
 
-      mkdir -p $RESULTDIR/repo/oomph
-      cp -rf ../sites/org.eclipse.oomph.site/target/repository/* $RESULTDIR/repo/oomph
+#      mkdir -p $RESULTDIR/repo/oomph
+#      cp -rf ../sites/org.eclipse.oomph.site/target/repository/* $RESULTDIR/repo/oomph
 
-      mkdir $RESULTDIR/products
-      cp ../products/org.eclipse.oomph.setup.installer.product/target/products/*.zip $RESULTDIR/products
+#      mkdir $RESULTDIR/products
+#      cp ../products/org.eclipse.oomph.setup.installer.product/target/products/*.zip $RESULTDIR/products
       
       # add, commit and push files
       git add -f .
