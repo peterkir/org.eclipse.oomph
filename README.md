@@ -2,6 +2,8 @@ org.eclipse.oomph
 =================
 
  [TravisCI ![Build Status](https://travis-ci.org/peterkir/org.eclipse.oomph.png)](https://travis-ci.org/peterkir/org.eclipse.oomph)
+ 
+ [ ![Download](https://api.bintray.com/packages/peterkir/generic/org.eclipse.oomph/images/download.svg)](https://bintray.com/peterkir/generic/org.eclipse.oomph/_latestVersion)
 
 # CI build results are available here 
 
