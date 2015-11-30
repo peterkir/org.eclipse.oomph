@@ -24,8 +24,15 @@ script:
 - mvn install --show-version --batch-mode --quiet --errors -P modules -DskipTests
 
 after_success:
+- BINTRAY_DESC=bintray.desc.json
 - chmod a+x .travis-deploy.sh
 - "./.travis-deploy.sh"
+- sed -i -e 's|$DATE|'$DATE'|g' $BINTRAY_DESC
+- sed -i -e 's|$TRAVIS_BRANCH|'$TRAVIS_BRANCH'|g' $BINTRAY_DESC
+- sed -i -e 's|$TRAVIS_JOB_NUMBER|'$TRAVIS_JOB_NUMBER'|g' $BINTRAY_DESC
+- sed -i -e 's|$TRAVIS_BUILD_ID|'$TRAVIS_BUILD_ID'|g' $BINTRAY_DESC
+- sed -i -e 's|$TRAVIS_BUILD_NUMBER|'$TRAVIS_BUILD_NUMBER'|g' $BINTRAY_DESC
+- sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g' $BINTRAY_DESC
 
 deploy:
   on: peterkir
