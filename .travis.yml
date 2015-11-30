@@ -30,7 +30,7 @@ after_success:
 - "./.travis-deploy.sh"
 
 deploy:
-  on: master,eclipse_origin,peterkir
+  on: peterkir
   provider: bintray
   file: bintray.desc.json
   user: peterkir
