@@ -9,29 +9,28 @@
         "licenses": ["EPL-1.0"],
         "labels": [""],
         "public_download_numbers": true,
-        "public_stats": true
-    },
+        "public_stats": true,
+        "attributes": [
+           {"name": "TRAVIS_BRANCH"      , "values" : ["$TRAVIS_BRANCH"]       , "type": "string"},
+           {"name": "TRAVIS_JOB_NUMBER"  , "values" : ["$TRAVIS_JOB_NUMBER"]   , "type": "number"},
+           {"name": "TRAVIS_BUILD_ID"    , "values" : ["$TRAVIS_BUILD_ID"]     , "type": "string"},
+           {"name": "TRAVIS_BUILD_NUMBER", "values" : ["$TRAVIS_BUILD_NUMBER"] , "type": "string"},
+           {"name": "TRAVIS_COMMIT"      , "values" : ["$TRAVIS_COMMIT"]       , "type": "string"}
+        ]
+	},
 
     "version": {
         "name": "0.1",
         "desc": "initial version",
         "released": "$DATE",
-        "vcs_tag": "0.1",
-        "attributes": [
-           {"name": "TRAVIS_BRANCH"      , "values" : ["$TRAVIS_BRANCH"]       , "type": "string"},
-           {"name": "TRAVIS_JOB_NUMBER"  , "values" : ["$TRAVIS_JOB_NUMBER"]   , "type": "number"},
-           {"name": "TRAVIS_BUILD_ID"    , "values" : ["$TRAVIS_BUILD_ID"]     , "type": "number"},
-           {"name": "TRAVIS_BUILD_NUMBER", "values" : ["$TRAVIS_BUILD_NUMBER"] , "type": "string"},
-           {"name": "TRAVIS_COMMIT"      , "values" : ["$TRAVIS_COMMIT"]       , "type": "string"}
-        ],
-        "gpgSign": false
+        "vcs_tag": "0.1"
     },
 
     "files":
         [
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*?zip)", "uploadPattern": "products/$1" },
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*)"  , "uploadPattern": "p2/installer/$1" },
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*)"                        , "uploadPattern": " p2/oomph/$1" }
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)"   , "uploadPattern": "products/$1" },
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository(.*)*/(.*)" , "uploadPattern": "p2/installer/$1" },
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository(.*)*/(.*)"                       , "uploadPattern": "p2/oomph/$1" }
         ],
     "publish": true
 }
