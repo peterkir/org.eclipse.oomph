@@ -30,8 +30,8 @@
     "files":
         [
            { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*?zip)", "uploadPattern": "products/$1" },
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*)"  , "uploadPattern": "repo/installer/$1" },
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*)"                        , "uploadPattern": "repo/oomph/$1" }
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*)"  , "uploadPattern": "p2/installer/$1" },
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*)"                        , "uploadPattern": " p2/oomph/$1" }
         ],
     "publish": true
 }
