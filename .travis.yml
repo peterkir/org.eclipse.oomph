@@ -33,6 +33,7 @@ after_success:
 - sed -i -e 's|$TRAVIS_BUILD_ID|'$TRAVIS_BUILD_ID'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_BUILD_NUMBER|'$TRAVIS_BUILD_NUMBER'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g' $BINTRAY_DESC
+- cat $BINTRAY_DESC
 
 deploy:
   on: peterkir
