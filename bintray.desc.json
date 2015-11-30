@@ -20,17 +20,17 @@
 	},
 
     "version": {
-        "name": "0.1",
+        "name": "1.3.0.$DATE",
         "desc": "initial version",
         "released": "$DATE",
-        "vcs_tag": "0.1"
+        "vcs_tag": "$TRAVIS_COMMIT"
     },
 
     "files":
         [
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)"   , "uploadPattern": "products/$1" },
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository(.*)*/(.*)" , "uploadPattern": "p2/installer/$1" },
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository(.*)*/(.*)"                       , "uploadPattern": "p2/oomph/$1" }
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)"   , "uploadPattern": "$TRAVIS_BUILD_NUMBER/products/$1" },
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*\.?.*)" , "uploadPattern": "$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*\.?.*)"                       , "uploadPattern": "$TRAVIS_BUILD_NUMBER/p2/oomph/$1" }
         ],
     "publish": true
 }
