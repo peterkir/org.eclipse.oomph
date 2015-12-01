@@ -16,13 +16,13 @@ then
       # create and cd into temporary deployment work directory
       mkdir deployment-work
       cd deployment-work
-      
+	  
       # setup git and clone from gh-pages branch
       git config --global user.email "travis-deployer@klib.io"
       git config --global user.name "Travis Deployer"
       git clone --quiet --branch=gh-pages https://pekirsc:${GH_TOKEN}@github.com/peterkir/org.eclipse.oomph.git . > /dev/null 2>&1 || error_exit "Error cloning gh-pages"
     
-	  BINTRAY_URL=https://bintray.com/artifact/download/peterkir/generic/org.eclipse.oomph/1.3.0/$TRAVIS_BUILD_NUMBER
+	  BINTRAY_URL=https://bintray.com/artifact/download/peterkir/generic/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/
 	
 	  echo -e "updating index.html with build details"
 	  DATE=`date +%Y%m%d-%H%M%S`
