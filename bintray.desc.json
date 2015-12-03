@@ -13,7 +13,7 @@
 	},
 
     "version": {
-        "name": "1.3.0",
+        "name": "$VERSION",
         "desc": "https://travis-ci.org/peterkir/org.eclipse.oomph/builds/$TRAVIS_BUILD_ID",
         "released": "$DATE",
         "vcs_tag": "$TRAVIS_COMMIT",
@@ -28,11 +28,9 @@
 
     "files":
         [
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)"    , "uploadPattern": "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*?\.?.*)" , "uploadPattern": "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*\.jar)"  , "uploadPattern": "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*?\.?.*)"                       , "uploadPattern": "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" },
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*\.jar)"                        , "uploadPattern": "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" }
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)"    , "uploadPattern": "org.eclipse.oomph/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*?\.?.*)" , "uploadPattern": "org.eclipse.oomph/$VERSION$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*?\.?.*)"                       , "uploadPattern": "org.eclipse.oomph/$VERSION$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" }
         ],
     "publish": true
 }
