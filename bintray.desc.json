@@ -32,10 +32,10 @@
            { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)",
              "uploadPattern":  "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
 
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(\bcontent\b|\bartifacts\b\.jar)",
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(\bcontent|artifacts\b\.jar)",
              "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
 
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(\bcontent\b|\bartifacts\b\.jar)",
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(\bcontent|artifacts\b\.jar)",
              "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" }
 
         ],
