@@ -30,14 +30,13 @@
     "files":
         [
            { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)",
-             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
+             "uploadPattern":  "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
 
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*?\.jar)",
-             "excludePattern": ".*/(\b(content|artifacts)\b\.jar)",
-             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(\bcontent\b|\bartifacts\b\.jar)",
+             "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
 
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(\b(content|artifacts)\b\.jar)",
-             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" }
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(\bcontent\b|\bartifacts\b\.jar)",
+             "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" }
 
         ],
     "publish": true
