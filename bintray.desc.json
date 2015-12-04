@@ -29,9 +29,22 @@
 
     "files":
         [
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)"    , "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*?\.?.*)" , "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
-           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*?\.?.*)"                       , "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" }
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/products/(.*\.zip)",
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
+
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*?\.?.*)",
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/content.jar",
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/content.jar" },
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/artifacts.jar",
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/artifacts.jar" },
+
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(.*?\.?.*)", 
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" },
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/content.jar", 
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/content.jar" },
+           { "includePattern": "sites/org.eclipse.oomph.site/target/repository/artifacts.jar", 
+             "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/artifacts.jar" }
         ],
     "publish": true
 }
