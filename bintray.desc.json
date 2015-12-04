@@ -38,7 +38,7 @@
              "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
 
            { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(content\.jar)",
-             "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" }
+             "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" },
            { "includePattern": "sites/org.eclipse.oomph.site/target/repository/(artifacts\.jar)",
              "uploadPattern":  "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph/$1" }
 
