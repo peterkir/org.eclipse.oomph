@@ -28,7 +28,7 @@ script:
 
 after_success:
 # preparing the JFrog Bintray descriptor
-- ls -lR 
+#- ls -lR 
 - BINTRAY_DESC=bintray.desc.json
 - BINTRAY_PACKAGE=org.eclipse.oomph
 - sed -i -e 's|$DATE|'$DATE'|g'                               $BINTRAY_DESC
