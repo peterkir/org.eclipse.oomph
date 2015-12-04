@@ -22,6 +22,7 @@
            {"name": "TRAVIS_JOB_NUMBER"  , "values" : ["$TRAVIS_JOB_NUMBER"]   , "type": "string"},
            {"name": "TRAVIS_BUILD_ID"    , "values" : ["$TRAVIS_BUILD_ID"]     , "type": "string"},
            {"name": "TRAVIS_BUILD_NUMBER", "values" : ["$TRAVIS_BUILD_NUMBER"] , "type": "string"},
+           {"name": "TRAVIS_JOB_NUMBER"  , "values" : ["$TRAVIS_JOB_NUMBER"]   , "type": "string"},
            {"name": "TRAVIS_COMMIT"      , "values" : ["$TRAVIS_COMMIT"]       , "type": "string"}
         ]
     },
