@@ -33,10 +33,10 @@
              "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/products/$1" },
 
            { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(.*?\.jar)",
-             "excludePattern": ".*/\[content|artifacts\]/.jar",
+             "excludePattern": ".*/[content|artifacts]/.jar",
              "uploadPattern": "$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
 
-           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/(\[content|artifacts\]/.jar)",
+           { "includePattern": "products/org.eclipse.oomph.setup.installer.product/target/repository/([content|artifacts]/.jar)",
              "uploadPattern": "$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/installer/$1" },
 
         ],
