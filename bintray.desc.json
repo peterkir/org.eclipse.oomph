@@ -19,7 +19,6 @@
         "vcs_tag": "$TRAVIS_COMMIT",
         "attributes": [
            {"name": "TRAVIS_BRANCH"      , "values" : ["$TRAVIS_BRANCH"]       , "type": "string"},
-           {"name": "TRAVIS_JOB_NUMBER"  , "values" : ["$TRAVIS_JOB_NUMBER"]   , "type": "string"},
            {"name": "TRAVIS_BUILD_ID"    , "values" : ["$TRAVIS_BUILD_ID"]     , "type": "string"},
            {"name": "TRAVIS_BUILD_NUMBER", "values" : ["$TRAVIS_BUILD_NUMBER"] , "type": "string"},
            {"name": "TRAVIS_JOB_NUMBER"  , "values" : ["$TRAVIS_JOB_NUMBER"]   , "type": "string"},

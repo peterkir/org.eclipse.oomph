@@ -25,9 +25,18 @@ then
       BINTRAY_URL=https://bintray.com/artifact/download/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/
 	
       echo -e "updating index.html with build details"
-      DATE=`date +%Y%m%d-%H%M%S`
-      sed -i -e 's|<h1>customized oomph build - last updated on .*\?<\/h1>|<h1>customized oomph build - last updated on '$DATE'</h1>|g' index.html
-      sed -i -e 's|<h2>Branch '$TRAVIS_BRANCH' - TravisCI build <a href="https://travis-ci.org/peterkir/org.eclipse.oomph/builds/.*\?">#.*\?</a> - build on .*\?<\/h2>|<h2>Branch '$TRAVIS_BRANCH' - TravisCI build <a href="https://travis-ci.org/peterkir/org.eclipse.oomph/builds/'$TRAVIS_BUILD_ID'">#'$TRAVIS_BUILD_NUMBER'</a> - build on '$DATE'</h2>|g' index.html
+      copy index.html_template index.html
+      INDEX_HTML=index.html
+      sed -i -e 's|$DATE|'$DATE'|g'                               $INDEX_HTML
+      sed -i -e 's|$BINTRAY_PACKAGE|'$BINTRAY_PACKAGE'|g'         $INDEX_HTML
+      sed -i -e 's|$BINTRAY_URL|'$BINTRAY_URL'|g'                 $INDEX_HTML
+      sed -i -e 's|$VERSION|'$VERSION'|g'                         $INDEX_HTML
+      sed -i -e 's|$TRAVIS_BRANCH|'$TRAVIS_BRANCH'|g'             $INDEX_HTML
+      sed -i -e 's|$TRAVIS_JOB_NUMBER|'$TRAVIS_JOB_NUMBER'|g'     $INDEX_HTML
+      sed -i -e 's|$TRAVIS_BUILD_ID|'$TRAVIS_BUILD_ID'|g'         $INDEX_HTML
+      sed -i -e 's|$TRAVIS_BUILD_NUMBER|'$TRAVIS_BUILD_NUMBER'|g' $INDEX_HTML
+      sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g'             $INDEX_HTML
+      cat $INDEX_HTML
 	
       # add, commit and push files
       git add -f .
