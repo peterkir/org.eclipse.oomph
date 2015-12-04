@@ -2,10 +2,9 @@ org.eclipse.oomph
 =================
 
  [TravisCI ![Build Status](https://travis-ci.org/peterkir/org.eclipse.oomph.png)](https://travis-ci.org/peterkir/org.eclipse.oomph)
- 
- [ ![Download](https://api.bintray.com/packages/peterkir/generic/org.eclipse.oomph/images/download.svg)](https://bintray.com/peterkir/generic/org.eclipse.oomph/_latestVersion)
+ [Bintray ![Download](https://api.bintray.com/packages/peterkir/generic/org.eclipse.oomph/images/download.svg)](https://bintray.com/peterkir/generic/org.eclipse.oomph/_latestVersion)
 
-# CI build results are available here 
+# product is available here 
 
 http://peterkir.github.io/org.eclipse.oomph/
 
@@ -16,9 +15,9 @@ http://peterkir.github.io/org.eclipse.oomph/
 
 ### What is changed wrt orginal
 
+- create additional system property (oomph.home) as root for all local oomph storage
 - adding custom "ResourceExtract Task" capable of extracting zip archive uri's during installation
-- create additional system property (oomph.p2.agent.path) for p2 AgentManagerImpl
-- use custom product and project configurations from https://github.com/peterkir/idefix
+- providing custom product and project configurations from https://github.com/peterkir/idefix
 
 # Links
 
