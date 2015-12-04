@@ -17,25 +17,30 @@ install:
 - echo "export MAVEN_OPTS='-Dmaven.repo.local=$HOME/.repoOomph -Xmx2750m'" > ~/.mavenrc
 
 script:
-- DEFAULT_UPDATE_URL=http://peterkir.github.io/org.eclipse.oomph/$TRAVIS_BRANCH/repo/oomph
+# change update URL to run against the branch it is build on
+- VERSION=1.3.0
+- DEFAULT_UPDATE_URL=https://bintray.com/artifact/download/peterkir/generic/eval/$VERSION/$TRAVIS_BRANCH/$TRAVIS_JOB_NUMBER/p2/oomph
 - echo patch the DEFAULT_UPDATE_URL to $DEFAULT_UPDATE_URL
 - sed -i -e 's|http://download.eclipse.org/oomph/updates/milestone/latest|'$DEFAULT_UPDATE_URL'|g'
   plugins/org.eclipse.oomph.setup.core/src/org/eclipse/oomph/setup/internal/core/SetupCorePlugin.java
+# building
 - mvn install --show-version --batch-mode --quiet --errors -P modules -DskipTests
 
 after_success:
+# preparing the JFrog Bintray descriptor
 - BINTRAY_DESC=bintray.desc.json
-- VERSION=1.3.0
-- chmod a+x .travis-deploy.sh
-- "./.travis-deploy.sh"
-- sed -i -e 's|$DATE|'$DATE'|g' $BINTRAY_DESC
-- sed -i -e 's|$VERSION|'$VERSION'|g' $BINTRAY_DESC
+- sed -i -e 's|$DATE|'$DATE'|g' $DESCFILE
+- sed -i -e 's|$BINTRAY_PACKAGE|'org.eclipse.oomph'|g' $DESCFILE
+- sed -i -e 's|$VERSION|'$VERSION'|g' $DESCFILE
 - sed -i -e 's|$TRAVIS_BRANCH|'$TRAVIS_BRANCH'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_JOB_NUMBER|'$TRAVIS_JOB_NUMBER'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_BUILD_ID|'$TRAVIS_BUILD_ID'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_BUILD_NUMBER|'$TRAVIS_BUILD_NUMBER'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g' $BINTRAY_DESC
 - cat $BINTRAY_DESC
+# running the deply script
+- chmod a+x .travis-deploy.sh
+- "./.travis-deploy.sh"
 
 deploy:
   on: peterkir
