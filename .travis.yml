@@ -21,7 +21,7 @@ install:
 
 script:
 # change update URL to run against the branch it is build on
-- VERSION=1.3.0
+- export VERSION=1.3.0
 - DEFAULT_UPDATE_URL=https://bintray.com/artifact/download/peterkir/generic/eval/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph
 - echo patch the DEFAULT_UPDATE_URL to $DEFAULT_UPDATE_URL
 - sed -i -e 's|http://download.eclipse.org/oomph/updates/milestone/latest|'$DEFAULT_UPDATE_URL'|g'
@@ -32,8 +32,8 @@ script:
 after_success:
 # preparing the JFrog Bintray descriptor
 #- ls -lR 
-- BINTRAY_DESC=*.json
-- BINTRAY_PACKAGE=org.eclipse.oomph
+- export BINTRAY_DESC=*.json
+- export BINTRAY_PACKAGE=org.eclipse.oomph
 - sed -i -e 's|$DATE|'$DATE'|g'                               $BINTRAY_DESC
 - sed -i -e 's|$BINTRAY_PACKAGE|'$BINTRAY_PACKAGE'|g'         $BINTRAY_DESC
 - sed -i -e 's|$VERSION|'$VERSION'|g'                         $BINTRAY_DESC
