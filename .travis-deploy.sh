@@ -24,7 +24,7 @@ then
     
       BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/	
       echo -e "updating index.html with build details"
-      copy index.html_template index.html
+      cp index.html_template index.html
       INDEX_HTML=index.html
       sed -i -e 's|$DATE|'$DATE'|g'                               $INDEX_HTML
       sed -i -e 's|$BINTRAY_PACKAGE|'$BINTRAY_PACKAGE'|g'         $INDEX_HTML
