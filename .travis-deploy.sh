@@ -22,7 +22,7 @@ then
       git config --global user.name "Travis Deployer"
       git clone --quiet --branch=gh-pages https://pekirsc:${GH_TOKEN}@github.com/peterkir/org.eclipse.oomph.git . > /dev/null 2>&1 || error_exit "Error cloning gh-pages"
     
-      BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/	
+      BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
       echo -e "updating index.html with build details - $BINTRAY_URL"
       cp index.html_template index.html
       INDEX_HTML=index.html
