@@ -37,6 +37,10 @@ then
       sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g'             $INDEX_HTML
       cat $INDEX_HTML
 	
+	  echo -e "storing for branch $TRAVIS_BRANCH latest build number $TRAVIS_BUILD_NUMBER
+	  mkdir $TRAVIS_BRANCH
+	  echo $TRAVIS_BUILD_NUMBER > $TRAVIS_BRANCH/latest
+	  
       # add, commit and push files
       git add -f .
       git commit -m "[ci skip] Deploy Travis build #$TRAVIS_BUILD_NUMBER for branch $TRAVIS_BRANCH to gh-pages"
