@@ -22,7 +22,7 @@ then
       git config --global user.name "Travis Deployer"
       git clone --quiet --branch=gh-pages https://pekirsc:${GH_TOKEN}@github.com/peterkir/org.eclipse.oomph.git . > /dev/null 2>&1 || error_exit "Error cloning gh-pages"
     
-      BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
+      export BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
       echo -e "updating index.html with build details - $BINTRAY_URL"
       cp index.html_template index.html
       INDEX_HTML=index.html
@@ -44,7 +44,7 @@ then
       # add, commit and push files
       git add -f .
       git commit -m "[ci skip] Deploy Travis build #$TRAVIS_BUILD_NUMBER for branch $TRAVIS_BRANCH to gh-pages"
-      git push -fq origin gh-pages > /dev/null 2>&1 || error_exit "Error uploading the build result to gh-pages"
+      git push -fq origin gh-pages || error_exit "Error uploading the build result to gh-pages"
     
       echo -e "Done with deployment to gh-pages\n"
 
