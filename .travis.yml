@@ -12,8 +12,9 @@ cache:
 env:
   global:
   - secure: D5P0ufVcDSsP9+oeDLns1MGGgACe/Y8pc0oYNJtCEXrPkUJv3KdpTCnsdFuyYEygy9PDGBAYj/q+yTQNgj5IhnK6rohgnZ+Q4czMwk0oivhPaU2Ohx6o5enJFvy0CraOc7R0q+YwVSCnQv99ApSviMicOigfR3wsasY9UUOSNVDEoBWoP5j+A16Ts40g9XGUwbalZLxu5lcj+HAZ6vFwvp5M+YUmt3g0cBkVmuIfAsJgpYknTyYqFIDcmMnp3MWk1p1NgY9gzQ/XP4b28aBdFaZjLb+HsQ5vhIKhV/+jaeHnbzGHD7lqqJ0SxlxOYcgROfkK8NzfdyV/lhETCU661w5bl4nbrKylXlc+ngocDLgHzN4ovhxaG20HBvTmulAwFvcK8FbzmBOm+Y4DY//HyG/V4B5KX5TiKfUGAFk9iZ4DQLY4DA6o/CNRHzWTAVYrwl6Fhozgb2dZIZ1QMIOCmuIH2WvhjUBp2p99JFHbZ5QzANjIhmXz7q9qhwRWerurxCXBu7bWV9/6FTNflH04+OCOHzhpm65iA6GzchnR4fhlhHSVABFXHgL2jQ8iZNhHBIIM0JlHum68qE+fnTKTUmtTZNRebRm/ArONt0CwCcI88RSnBJpm/nflH7vF4ng2gpmrTKPsFAJyJFrU1BApwO/+gxZKd9iDeDZkrrk2pqo=
-# prepare pre-filled maven repository
+
 install:
+# prepare pre-filled maven repository
 #- wget https://s3-eu-west-1.amazonaws.com/klib.io/repoOomph.zip
 #- wget http://klib.io/repoOomph.zip
 #- unzip -d $HOME repoOomph.zip
@@ -21,7 +22,7 @@ install:
 
 script:
 # change update URL to run against the branch it is build on
-- VERSION=1.3.0
+- export VERSION=1.3.0
 - DEFAULT_UPDATE_URL=https://bintray.com/artifact/download/peterkir/generic/eval/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/p2/oomph
 - echo patch the DEFAULT_UPDATE_URL to $DEFAULT_UPDATE_URL
 - sed -i -e 's|http://download.eclipse.org/oomph/updates/milestone/latest|'$DEFAULT_UPDATE_URL'|g'
@@ -31,10 +32,10 @@ script:
 
 after_success:
 # preparing the JFrog Bintray descriptor
-#- ls -lR 
-- BINTRAY_DESC=bintray.desc.json
-- BINTRAY_PACKAGE=org.eclipse.oomph
-- sed -i -e 's|$DATE|'$DATE'|g'                               $BINTRAY_DESC*
+- export DATE=`date +%Y%m%d-%H%M%S`
+- export BINTRAY_DESC=*.json
+- export BINTRAY_PACKAGE=org.eclipse.oomph
+- sed -i -e 's|$DATE|'$DATE'|g'                               $BINTRAY_DESC
 - sed -i -e 's|$BINTRAY_PACKAGE|'$BINTRAY_PACKAGE'|g'         $BINTRAY_DESC
 - sed -i -e 's|$VERSION|'$VERSION'|g'                         $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_BRANCH|'$TRAVIS_BRANCH'|g'             $BINTRAY_DESC
@@ -43,21 +44,19 @@ after_success:
 - sed -i -e 's|$TRAVIS_BUILD_NUMBER|'$TRAVIS_BUILD_NUMBER'|g' $BINTRAY_DESC
 - sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g'             $BINTRAY_DESC
 - cat $BINTRAY_DESC
-# running the deploy script
+# running the deploy script for peterkir.github.io/org.eclipse.oomph
 - chmod a+x .travis-deploy.sh
 - "./.travis-deploy.sh"
 
 deploy:
   - provider: bintray
-    on:
-      all_branches: true
-    file: bintray.desc.p2.metadata.json
+    on: peterkir
+    file: bintray.desc.p2metadata.json
     user: peterkir
     key:
       secure: uNM+/wh2Pe79PQXqPsy5Tv4Ia9rtiez2T+qVvaC9z25DZegtjuR5VXUSujw2/2364we3OnU+5q7sW6zIb7dq48XPjvly/TTR1jfMEyv78Nu+vIvekeJFXV7buXsMSs45lYdcd7EC/tXzNmDwSAmL9v2QMHmBU6cu67S0ydump8FL6LIXWBLugEgysd+e4Uf6tWJQOc3f1mX8Jqne+UdJ1WKRLHAHzkRx9k+Gk398v3uwzG7iC13twrOi2oI3Dw7Fh04QBcA+OXpOAmOxkymLruBKN4npGUh8tuqvb4HzRPOs5Utkh0jQlvDhfTahs9oDyUhRUrK9V/a36UIr3pKrzn4sdDXPbU1kWEm9mcNmKd6PtKisUQXAdwZeziQQDYIMHCSdWD1D2xMPsKSuk2qAnbnhvXKORLQMzTon49zMOTj3FR1ZJJ6gpDxjxNuFUa28PxxGe5LHQ0KehY6BsrBMPhqG5cOTpMO1/7B4ga3dO2T+y5ZHmt9TrZkRQxK67o8dwI88VBcWPo9f0ytzGtBrl9wykqD80M0oBzXqedqP0Pr0fgE/BnakVRjeEhgbbrTpZTDJHk7JuZgWBFk0gKS9N0eyjtnF7Ha/ch1JOicakC8m+6P8/mM8wVEYKPpTcFJSqbZwGiwuAe1amU8VmpHIDJNCHp7VmIRv8d9UVLRo2Ig=
   - provider: bintray
-    on:
-      all_branches: true
+    on: peterkir
     file: bintray.desc.files.json
     user: peterkir
     key:

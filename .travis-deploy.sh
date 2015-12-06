@@ -20,11 +20,11 @@ then
       # setup git and clone from gh-pages branch
       git config --global user.email "travis-deployer@klib.io"
       git config --global user.name "Travis Deployer"
-      git clone --quiet --branch=gh-pages https://pekirsc:${GH_TOKEN}@github.com/peterkir/org.eclipse.oomph.git . > /dev/null 2>&1 || error_exit "Error cloning gh-pages"
+      git clone --quiet --branch=gh-pages https://peterkir:${GH_TOKEN}@github.com/peterkir/org.eclipse.oomph.git . > /dev/null 2>&1 || error_exit "Error cloning gh-pages"
     
-      BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER/	
-      echo -e "updating index.html with build details"
-      copy index.html_template index.html
+      export BINTRAY_URL=https://dl.bintray.com/peterkir/generic/$BINTRAY_PACKAGE/$VERSION/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
+      echo -e "updating index.html with build details - $BINTRAY_URL"
+      cp index.html_template index.html
       INDEX_HTML=index.html
       sed -i -e 's|$DATE|'$DATE'|g'                               $INDEX_HTML
       sed -i -e 's|$BINTRAY_PACKAGE|'$BINTRAY_PACKAGE'|g'         $INDEX_HTML
@@ -37,10 +37,15 @@ then
       sed -i -e 's|$TRAVIS_COMMIT|'$TRAVIS_COMMIT'|g'             $INDEX_HTML
       cat $INDEX_HTML
 	
+      echo -e "storing for branch $TRAVIS_BRANCH latest build number $TRAVIS_BUILD_NUMBER
+
+      mkdir $TRAVIS_BRANCH
+      echo $TRAVIS_BUILD_NUMBER> $TRAVIS_BRANCH/latest
+	  
       # add, commit and push files
-      git add -f .
-      git commit -m "[ci skip] Deploy Travis build #$TRAVIS_BUILD_NUMBER for branch $TRAVIS_BRANCH to gh-pages"
-      git push -fq origin gh-pages > /dev/null 2>&1 || error_exit "Error uploading the build result to gh-pages"
+      git add -v -f .
+      git commit -v -m "[ci skip] Deploy Travis build #$TRAVIS_BUILD_NUMBER for branch $TRAVIS_BRANCH to gh-pages"
+      git push -v -fq origin gh-pages > /dev/null 2>&1 || error_exit "Error uploading the build result to gh-pages"
     
       echo -e "Done with deployment to gh-pages\n"
 
