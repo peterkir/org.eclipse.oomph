@@ -1,2 +1,0 @@
-commit.comment.template=[${task.id}] ${task.description}\r\n\r\n${task.url}
-eclipse.preferences.version=1
