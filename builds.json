@@ -1,25 +1,25 @@
 {builds: [
    {
-      TRAVIS_BUILD_ID: "95218958"
-      TRAVIS_BUILD_NUMBER: "176"
-      TRAVIS_JOB_NUMBER: "176.1"
-      DATE: "20141214-172923"
-      BINTRAY_PACKAGE: "org.eclipse.oomph"
-      BINTRAY_ROOT_URL: ""
-      VERSION: "1.3.0"
-      BRANCH: "peterkir"
-      COMMIT: "528806c"
+      TRAVIS_BUILD_ID: "95218958",
+      TRAVIS_BUILD_NUMBER: "176",
+      TRAVIS_JOB_NUMBER: "176.1",
+      DATE: "20141214-172923",
+      BINTRAY_PACKAGE: "org.eclipse.oomph",
+      BINTRAY_ROOT_URL: "",
+      VERSION: "1.3.0",
+      BRANCH: "peterkir",
+      COMMIT: "528806c",
       COMMIT_RANGE: ""
    },
    {
-      TRAVIS_BUILD_ID: "116156239"
-      TRAVIS_BUILD_NUMBER: "185"
-      TRAVIS_JOB_NUMBER: "185.1"
-      DATE: "20160315-160719"
-      BINTRAY_PACKAGE: "org.eclipse.oomph"
-      BINTRAY_ROOT_URL: ""
-      VERSION: "1.4.0"
-      BRANCH: "master"
+      TRAVIS_BUILD_ID: "116156239",
+      TRAVIS_BUILD_NUMBER: "185",
+      TRAVIS_JOB_NUMBER: "185.1",
+      DATE: "20160315-160719",
+      BINTRAY_PACKAGE: "org.eclipse.oomph",
+      BINTRAY_ROOT_URL: "",
+      VERSION: "1.4.0",
+      BRANCH: "master",
       COMMIT: "6ac1aff"
    }
 ]
