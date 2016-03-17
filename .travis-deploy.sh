@@ -41,7 +41,10 @@ then
 		CurrentBuildJson+='      COMMIT: "'$TRAVIS_COMMIT'"\n'
 		CurrentBuildJson+='   },'
 		
+		echo -e "CurrentBuildJson=${CurrentBuildJson}"
+		
 		sed -i -e 's|{builds: \[|'${CurrentBuildJson}'|g' builds.json
+		echo -e "new build JSON looks like this"
 		cat builds.json
 			
 		echo -e "storing for branch $TRAVIS_BRANCH latest build number $TRAVIS_BUILD_NUMBER"
