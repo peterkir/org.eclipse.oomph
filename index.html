@@ -1,21 +1,105 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Oomph by klib.io</title>
-    <link rel="shortcut icon" href="k.png">
+    <link rel="shortcut icon" href="icons/k.png">
+	<style>
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
 </head>
-  <body>
-    <h1><image src="oomph-42x42.png" /> CI for customized oomph builds - last updated on 20160316-184203</h1>
+<body>
+    <h1><image src="icons/oomph-42x42.png"/> customized oomph build - last updated on 20160315-160719</h1>
 	<p>The results of the CI from the different branches are provided here.</p>
 
-	<!--PLACEHOLDER_BUILD_SNIPPET-->
+	<div ng-app="buildApp" ng-controller="buildCtrl"> 
 
-    <h2>License</h2>
-    <p>
-      All content of this page is published under the terms of the <a href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, version 1.0</a>.
-    </p>
-    
-    <p>
-      provided by Kirschners GmbH
-    </p>
+    <td><h2>Branch master - TravisCI build</h2></td>
+	<table>
+	   <tr>
+	      <th>Date</th>
+	      <th>BuildID</th>
+	      <th colspan=5>Oomph Installler Products</th>
+	      <th colspan=2>p2 repo url</th>
+	      <th>sources</th>
+	      <th>commit</th>
+	   </tr>
+	   <tr>
+		  <td colspan="2">&nbsp;</td>
+	      <th colspan="2">win32</th>
+	      <th>MacOS Cocoa</th>
+	      <th>Linux GTK2</th>
+	      <th>Linux GTK2</th>
+	      <th colspan=5></th>
+	   </tr>
+	   <tr ng-repeat="x in builds | filter:{BRANCH:'master'}">
+	      <td>{{x.DATE}}</td>
+		  <td><a href="https://travis-ci.org/peterkir/{{x.BINTRAY_PACKAGE}}/builds/{{TRAVIS_BUILD_ID}}">{{x.TRAVIS_BUILD_NUMBER}}</a></td>
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip"><img src="icons/win64logo48.png"/></a></td>
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-win32.win32.x86.zip"><img src="icons/win32logo48.png"/></a></td> 
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-macosx.cocoa.x86_64.zip"><img src="icons/MacOSX.png"/></a></td> 
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-linux.gtk.x86_64.zip"><img src="icons/tux48_64bit.png"/></a></td>
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-linux.gtk.x86.zip"><img src="icons/tux48_32bit.png"/></a></td>
+ 		  <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/oomph">oomph</a></td>
+          <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/installer">installer</a></td>
+		  <td><a href="https://github.com/peterkir/org.eclipse.oomph/tree/{{x.BRANCH}}"><image src="icons/github.jpg"/></a></td>
+		  <td><a href="https://github.com/peterkir/org.eclipse.oomph/commit/{{x.COMMIT}}">{{x.COMMIT}}</a></td>
+	  </tr>
+	</table>
+
+
+    <td><h2>Branch peterkir - TravisCI build</h2></td>
+	<table>
+	   <tr>
+	      <th>Date</th>
+	      <th>BuildID</th>
+	      <th colspan=5>Oomph Installler Products</th>
+	      <th colspan=2>p2 repo url</th>
+	      <th>sources</th>
+	      <th>commit</th>
+	   </tr>
+	   <tr>
+		  <td colspan="2">&nbsp;</td>
+	      <th colspan="2">win32</th>
+	      <th>MacOS Cocoa</th>
+	      <th>Linux GTK2</th>
+	      <th>Linux GTK2</th>
+	      <th colspan=5></th>
+	   </tr>
+	   <tr ng-repeat="x in builds | filter:{BRANCH:'peterkir'}">
+	      <td>{{x.DATE}}</td>
+		  <td><a href="https://travis-ci.org/peterkir/{{x.BINTRAY_PACKAGE}}/builds/{{TRAVIS_BUILD_ID}}">{{x.TRAVIS_BUILD_NUMBER}}</a></td>
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip"><image src="icons/win64logo48.png"/></a></td>
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-win32.win32.x86.zip"><image src="icons/win32logo48.png"/></a></td> 
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-macosx.cocoa.x86_64.zip"><image src="icons/MacOSX.png"/></a></td> 
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-linux.gtk.x86_64.zip"><image src="icons/tux48_64bit.png"/></a></td>
+	      <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/products/org.eclipse.oomph.setup.installer.product-linux.gtk.x86.zip"><image src="icons/tux48_32bit.png"/></a></td>
+ 		  <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/oomph">oomph</a></td>
+          <td><a href="{{x.BINTRAY_ROOT_URL}}/{{x.BINTRAY_PACKAGE}}/{{x.VERSION}}/{{x.BRANCH}}/{{x.TRAVIS_BUILD_NUMBER}}/installer">installer</a></td>
+		  <td><a href="https://github.com/peterkir/org.eclipse.oomph/tree/{{x.BRANCH}}">GitHub</a>
+		  <td><a href="https://github.com/peterkir/org.eclipse.oomph/commit/{{x.COMMIT}}">{{x.COMMIT}}</a></td>
+	  </tr>
+	</table>
+	</div>
+
+		
+<script>
+var app = angular.module('buildApp', []);
+app.controller('buildCtrl', function($scope, $http) {
+    $http.get("https://peterkir.github.io/org.eclipse.oomph/builds.json")
+    .then(function (response) {$scope.builds = response.data.builds;});
+});
+</script>
+</body>
 </html>
