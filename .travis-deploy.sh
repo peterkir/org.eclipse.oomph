@@ -29,15 +29,15 @@ then
 		echo -e "updating builds.json with build details"
 
 		CurrentBuildJson+='   {\n'
-		CurrentBuildJson+='      TRAVIS_BUILD_ID: "'$TRAVIS_BUILD_ID'"\n'
-		CurrentBuildJson+='      TRAVIS_BUILD_NUMBER: "'$TRAVIS_BUILD_NUMBER'"\n'
-		CurrentBuildJson+='      TRAVIS_JOB_NUMBER: "'$TRAVIS_JOB_NUMBER'"\n'
-		CurrentBuildJson+='      DATE: "'$DATE'"\n'
-		CurrentBuildJson+='      BINTRAY_ROOT_URL: "'$BINTRAY_ROOT_URL'"\n'
-		CurrentBuildJson+='      BINTRAY_PACKAGE: "'$BINTRAY_PACKAGE'"\n'
-		CurrentBuildJson+='      VERSION: "'$VERSION'"\n'
-		CurrentBuildJson+='      BRANCH: "'$TRAVIS_BRANCH'"\n'
-		CurrentBuildJson+='      COMMIT: "'$TRAVIS_COMMIT'"\n'
+		CurrentBuildJson+='      "TRAVIS_BUILD_ID": "'$TRAVIS_BUILD_ID'",\n'
+		CurrentBuildJson+='      "TRAVIS_BUILD_NUMBER": "'$TRAVIS_BUILD_NUMBER'",\n'
+		CurrentBuildJson+='      "TRAVIS_JOB_NUMBER": "'$TRAVIS_JOB_NUMBER'",\n'
+		CurrentBuildJson+='      "DATE": "'$DATE'",\n'
+		CurrentBuildJson+='      "BINTRAY_ROOT_URL": "'$BINTRAY_ROOT_URL'",\n'
+		CurrentBuildJson+='      "BINTRAY_PACKAGE": "'$BINTRAY_PACKAGE'",\n'
+		CurrentBuildJson+='      "VERSION": "'$VERSION'",\n'
+		CurrentBuildJson+='      "BRANCH": "'$TRAVIS_BRANCH'",\n'
+		CurrentBuildJson+='      "COMMIT": "'$TRAVIS_COMMIT'"\n'
 		CurrentBuildJson+='   }'
 		
 		echo -e "$CurrentBuildJson" > escaped.txt
