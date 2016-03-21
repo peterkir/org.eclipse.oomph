@@ -54,9 +54,9 @@ then
 		cat builds.json
 		
 		echo -e "storing for branch $TRAVIS_BRANCH latest build number $TRAVIS_BUILD_NUMBER"
-	
 		mkdir $TRAVIS_BRANCH > /dev/null 2>&1
 		echo $TRAVIS_BUILD_NUMBER> $TRAVIS_BRANCH/latest
+		echo $DATE> latestBuild
 	
 		# add, commit and push files
 		git add -f .
