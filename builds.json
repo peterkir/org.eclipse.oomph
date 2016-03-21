@@ -1,5 +1,16 @@
 {"builds": [
    {
+      "TRAVIS_BUILD_ID": "117396582",
+      "TRAVIS_BUILD_NUMBER": "197",
+      "TRAVIS_JOB_NUMBER": "197.1",
+      "DATE": "20160321-084032",
+      "BINTRAY_ROOT_URL": "https://dl.bintray.com/peterkir/generic",
+      "BINTRAY_PACKAGE": "org.eclipse.oomph",
+      "VERSION": "1.4.0",
+      "BRANCH": "master",
+      "COMMIT": "0a1b77e7b1d3f05ef96c7a957080c8cdbc09c73f"
+   },
+   {
       "TRAVIS_BUILD_ID": "117387585",
       "TRAVIS_BUILD_NUMBER": "196",
       "TRAVIS_JOB_NUMBER": "196.1",
