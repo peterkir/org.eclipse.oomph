@@ -1,13 +1,13 @@
 {"builds": [
    {
-      TRAVIS_BUILD_ID: "117387585"
-      TRAVIS_BUILD_NUMBER: "196"
-      TRAVIS_JOB_NUMBER: "196.1"
-      DATE: "20160321-072217"
-      BINTRAY_ROOT_URL: "https://dl.bintray.com/peterkir/generic"
-      BINTRAY_PACKAGE: "org.eclipse.oomph"
-      VERSION: "1.4.0"
-      BRANCH: "master"
+      TRAVIS_BUILD_ID: "117387585",
+      TRAVIS_BUILD_NUMBER: "196",
+      TRAVIS_JOB_NUMBER: "196.1",
+      DATE: "20160321-072217",
+      BINTRAY_ROOT_URL: "https://dl.bintray.com/peterkir/generic",
+      BINTRAY_PACKAGE: "org.eclipse.oomph",
+      VERSION: "1.4.0",
+      BRANCH: "master",
       COMMIT: "18753f4f4a39e99d02d9eed52369f8c9421331ca"
    },
    {
