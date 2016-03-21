@@ -19,12 +19,14 @@ table tr:nth-child(even) {
 }
 </style>
 </head>
-<body>
-    <h1><image src="icons/oomph-42x42.png"/> customized oomph build - last updated on <!--DATE-->20160315-160719</h1>
+<body ng-app="buildApp">
+
+	<div ng-controller="buildDateCtrl"> 
+	<h1><image src="icons/oomph-42x42.png"/> customized oomph build - last updated on {{date}}</h1>
 	<p>The results of the CI from the different branches are provided here.</p>
+	</div>
 
-	<div ng-app="buildApp" ng-controller="buildCtrl"> 
-
+	<div ng-controller="buildCtrl"> 
     <td><h2>Branch master - TravisCI build</h2></td>
 	<table>
 	   <tr>
@@ -96,9 +98,17 @@ table tr:nth-child(even) {
 		
 <script>
 var app = angular.module('buildApp', []);
+app.controller('buildDateCtrl', function($scope, $http) {
+    $http.get("https://peterkir.github.io/org.eclipse.oomph/latestBuild")
+	.then (function (response) {
+		$scope.date = response.data;
+	});
+});
 app.controller('buildCtrl', function($scope, $http) {
     $http.get("https://peterkir.github.io/org.eclipse.oomph/builds.json")
-    .then(function (response) {$scope.builds = response.data.builds;});
+    .then(function (response) {
+		$scope.builds = response.data.builds;
+	});
 });
 </script>
 </body>
