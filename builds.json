@@ -42,7 +42,7 @@
       "BINTRAY_ROOT_URL":  "",
       "VERSION":  "1.4.0",
       "BRANCH":  "master",
-      "COMMIT":  "6ac1aff"
+      "COMMIT":  "6ac1aff32862161d81e6b7b1750bf904549d370b"
    },
    {
       "TRAVIS_BUILD_ID":  "95218958",
@@ -54,7 +54,7 @@
       "BINTRAY_ROOT_URL":  "",
       "VERSION":  "1.3.0",
       "BRANCH":  "peterkir",
-      "COMMIT":  "528806c",
+      "COMMIT":  "528806cf54145c57ef4c733df1b37dec4e82fdb9",
       "COMMIT_RANGE":  ""
    }
 ]
