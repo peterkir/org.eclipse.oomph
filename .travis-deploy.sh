@@ -28,7 +28,6 @@ then
 
 		echo -e "updating builds.json with build details"
 
-		CurrentBuildJson='{builds: [\n'
 		CurrentBuildJson+='   {\n'
 		CurrentBuildJson+='      TRAVIS_BUILD_ID: "'$TRAVIS_BUILD_ID'"\n'
 		CurrentBuildJson+='      TRAVIS_BUILD_NUMBER: "'$TRAVIS_BUILD_NUMBER'"\n'
@@ -39,14 +38,21 @@ then
 		CurrentBuildJson+='      VERSION: "'$VERSION'"\n'
 		CurrentBuildJson+='      BRANCH: "'$TRAVIS_BRANCH'"\n'
 		CurrentBuildJson+='      COMMIT: "'$TRAVIS_COMMIT'"\n'
-		CurrentBuildJson+='   },'
+		CurrentBuildJson+='   }'
 		
-		echo -e "CurrentBuildJson=${CurrentBuildJson}"
-		
-		sed -i -e 's|{builds: \[|'${CurrentBuildJson}'|g' builds.json
-		echo -e "new build JSON looks like this"
+		echo -e "$CurrentBuildJson" > escaped.txt
+		echo "escaping '/','\"' "
+		sed -i -e 's/\//\\\//g' escaped.txt
+		sed -i -e 's/"/\\"/g' escaped.txt
+
+		echo "escaping '\n'"
+		sed ':a;N;$!ba;s/\n/\\n/g' escaped.txt > escaped2.txt
+
+		EscapedJson=`< escaped2.txt`
+		sed -i -e "s|\[|[\n${EscapedJson},|g" builds.json
+		rm escaped*
 		cat builds.json
-			
+		
 		echo -e "storing for branch $TRAVIS_BRANCH latest build number $TRAVIS_BUILD_NUMBER"
 	
 		mkdir $TRAVIS_BRANCH > /dev/null 2>&1
